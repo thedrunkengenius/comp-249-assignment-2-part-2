@@ -46,7 +46,7 @@ public class Comp249assignment2part2 {
         System.out.print("Please enter an ISBN to search in the Book Inventory sequentially: ");
         //Sequential search is performed on the provided array, using the user inputted ISBN
         searchISBN = kb.nextLong();
-        myBookInventory.sequentialBookSearch(BookInventory2.getBookArray(), 2, 6, searchISBN);
+        myBookInventory.sequentialBookSearch(BookInventory2.getBookArray(), 0, (BookInventory2.getBookArray().length-1), searchISBN);
         done = true;
         }
         catch (InputMismatchException e1) {
