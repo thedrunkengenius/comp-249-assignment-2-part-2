@@ -91,11 +91,11 @@ public class BookInventory2 implements Serializable {
         String newRecord;
         PrintWriter pw = null;
         Scanner kb = new Scanner(System.in);
-        System.out.println("Adding records. Enter \"E\" at anytime to end process.");
-            //while (!done) {
+        
         try {
-            while (!done) {
             pw = new PrintWriter(new FileOutputStream(outputFile, true));
+            System.out.println("Adding records. Enter \"E\" at anytime to end process.");
+            while (!done) {
             System.out.print("Enter new record: ");
             newRecord = kb.nextLine();
             if (newRecord.equalsIgnoreCase("e")) {
@@ -105,13 +105,12 @@ public class BookInventory2 implements Serializable {
             pw.print("\n");
             pw.print(newRecord);
             }
-        }
             }
+        }
         catch (FileNotFoundException e1) {
             System.out.println("Either disk is too full or we have a bigger problem.");
-            System.out.println("You can enter \"E\" at anytime to end the process.");
+            System.exit(0);
         }
-    //} // while(!done) ends here
         finally {
             if (pw != null) {
                 pw.close();
