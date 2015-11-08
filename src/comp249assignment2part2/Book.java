@@ -19,6 +19,7 @@ public class Book implements Serializable {
     private String title;
     private String authorName;
     
+    // constructors
     public Book() {
         this.issueYear = 0;
         this.numberOfPages = 0;
@@ -35,6 +36,8 @@ public class Book implements Serializable {
         this.title = title;
         this.authorName = authorName;
     }
+    
+    // accessors and mutators
     public void setIssueYear(int issueYear) {
         this.issueYear = issueYear;
     }
@@ -71,6 +74,8 @@ public class Book implements Serializable {
     public String getAuthorName() {
         return this.authorName;
     }
+    
+    // methods
     @Override public String toString() {
         return (this.isbn + " " + this.title + " " + this.issueYear + " " + this.authorName + " " + this.price + " " + this.numberOfPages);
     }
