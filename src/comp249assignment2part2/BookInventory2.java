@@ -56,7 +56,7 @@ public class BookInventory2 implements Serializable {
         //Call private helper method to get number of books or lines in text file
         bookCount = getBookQuantity(inputName);
         //If count is 0 or less than 2, close program because no work is needed (always no duplicates)
-        if (bookCount = 0) {
+        if (bookCount == 0) {
             System.out.println("This file is empty. No operations needed.");
             System.exit(0);
         }
@@ -92,8 +92,9 @@ public class BookInventory2 implements Serializable {
         PrintWriter pw = null;
         Scanner kb = new Scanner(System.in);
         System.out.println("Adding records. Enter \"E\" at anytime to end process.");
-            while (!done) {
+            //while (!done) {
         try {
+            while (!done) {
             pw = new PrintWriter(new FileOutputStream(outputFile, true));
             System.out.print("Enter new record: ");
             newRecord = kb.nextLine();
@@ -104,13 +105,13 @@ public class BookInventory2 implements Serializable {
             pw.print("\n");
             pw.print(newRecord);
             }
-            
+        }
             }
         catch (FileNotFoundException e1) {
             System.out.println("Either disk is too full or we have a bigger problem.");
             System.out.println("You can enter \"E\" at anytime to end the process.");
         }
-    } // while(!done) ends here
+    //} // while(!done) ends here
         finally {
             if (pw != null) {
                 pw.close();
