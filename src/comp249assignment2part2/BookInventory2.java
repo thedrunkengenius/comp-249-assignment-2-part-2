@@ -3,7 +3,7 @@ package comp249assignment2part2;
 import java.io.*;
 import java.util.Scanner;
 
-public class BookInventory2 {
+public class BookInventory2 implements Serializable {
     private static Book[] bookArray;
     
     public BookInventory2() {
