@@ -20,21 +20,25 @@ public class Comp249assignment2part2 {
         BookInventory2 myBookInventory = new BookInventory2();
         myBookInventory.addRecords(inventoryFile);
         
+        //Try taking inventory file and converting lines to Book objects
         try {
         myBookInventory.stringToBook(inventoryFile);
         }
         catch (IOException e2) {
-            System.out.println("Oops");
+            System.out.println("An error occured while trying to read your file. Program will now terminate.");
             System.exit(0);
         }
         while (!done) {
         try {
         System.out.print("\n");
         System.out.print("Please enter an ISBN to search in the Book Inventory: ");
+        //Program takes the ISBN entered by the user, and searches for it in the array provided
         searchISBN = kb.nextLong();
-        myBookInventory.binaryBookSearch(BookInventory2.getBookArray(), 7, 6, searchISBN);
+        myBookInventory.binaryBookSearch(BookInventory2.getBookArray(), 1, 6, searchISBN);
+        //If no exceptions are thrown, loop terminates
         done = true;
         }
+        //If user enters invalid input, InputMismatchException is thrown
         catch (InputMismatchException e1) {
             kb.nextLine();
             System.out.println("That's not a number! Please try again.");
@@ -45,6 +49,7 @@ public class Comp249assignment2part2 {
         try {
         System.out.print("\n");
         System.out.print("Please enter an ISBN to search in the Book Inventory sequentially: ");
+        //Sequential search is performed on the provided array, using the user inputted ISBN
         searchISBN = kb.nextLong();
         myBookInventory.sequentialBookSearch(BookInventory2.getBookArray(), 2, 6, searchISBN);
         done = true;

@@ -186,7 +186,8 @@ public class BookInventory2 {
             System.exit(0);
         }
         catch (IOException e2) {
-            System.out.println("Some hiccup happened and I'm really sorry about that.");
+            System.out.println("Some hiccup happened while trying to establish a connection, and I'm really sorry about that.");
+            System.out.println("Program will now terminate.");
             System.exit(0);
         }
         finally {
