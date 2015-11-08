@@ -55,7 +55,11 @@ public class BookInventory2 {
         
         //Call private helper method to get number of books or lines in text file
         bookCount = getBookQuantity(inputName);
-        //If count is less than 2, close program because no work is needed (always no duplicates)
+        //If count is 0 or less than 2, close program because no work is needed (always no duplicates)
+        if (bookCount = 0) {
+            System.out.println("This file is empty. No operations needed.");
+            System.exit(0);
+        }
         if (bookCount < 2) {
             System.out.println("This file contains no duplicates. No operations needed.");
             System.exit(0);
@@ -87,10 +91,10 @@ public class BookInventory2 {
         String newRecord;
         PrintWriter pw = null;
         Scanner kb = new Scanner(System.in);
+        System.out.println("Adding records. Enter \"E\" at anytime to end process.");
+            while (!done) {
         try {
             pw = new PrintWriter(new FileOutputStream(outputFile, true));
-            System.out.println("Adding records. Enter \"E\" at anytime to end process.");
-            while (!done) {
             System.out.print("Enter new record: ");
             newRecord = kb.nextLine();
             if (newRecord.equalsIgnoreCase("e")) {
@@ -100,12 +104,13 @@ public class BookInventory2 {
             pw.print("\n");
             pw.print(newRecord);
             }
+            
             }
-        }
         catch (FileNotFoundException e1) {
             System.out.println("Either disk is too full or we have a bigger problem.");
-            System.exit(0);
+            System.out.println("You can enter \"E\" at anytime to end the process.");
         }
+    } // while(!done) ends here
         finally {
             if (pw != null) {
                 pw.close();
