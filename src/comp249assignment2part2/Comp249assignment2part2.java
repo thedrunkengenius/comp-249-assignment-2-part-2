@@ -29,7 +29,7 @@ public class Comp249assignment2part2 {
         System.out.print("Please enter an ISBN to search in the Book Inventory: ");
         //Program takes the ISBN entered by the user, and searches for it in the array provided
         searchISBN = kb.nextLong();
-        myBookInventory.binaryBookSearch(BookInventory2.getBookArray(), 1, 6, searchISBN);
+        myBookInventory.binaryBookSearch(BookInventory2.getBookArray(), 0, (BookInventory2.getBookArray().length-1), searchISBN);
         //If no exceptions are thrown, loop terminates
         done = true;
         }
